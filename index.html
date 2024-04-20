@@ -12,6 +12,35 @@
     <script src="scripts/index.js" defer></script>
 </head>
 <body>
-    
+    <div class="container">
+        <h1 id="playerText">Tic Tac Toe</h1>
+        <button id="restartBtn">Restart</button>
+        <h3 class="message"></h3>
+        <div id="gameboard">
+            <!-- <div class="box"></div>
+            <div class="box">X</div>
+            <div class="box"></div>
+            <div class="box">O</div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div> -->
+        </div>
+    </div> 
+
+    <dialog >
+        <form action="#">
+            <div>
+                <label for="firstPlayer">Player One Name</label>
+                <input type="text" name="playerOne" id="firstPlayer" placeholder="Marker X">
+            </div>
+            <div>
+                <label for="secondPlayer">Player One Name</label>
+                <input type="text" name="playerTwo" id="secondPlayer" placeholder="Marker X">
+            </div>
+            <button type="submit">Start Game</button>
+        </form>
+    </dialog>
 </body>
 </html>
