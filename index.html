@@ -11,5 +11,45 @@
     <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet"> 
     <script src="scripts/index.js" defer></script>
 </head>
-<body></body>
+<body>
+    <header>
+        <div class="title">tic tac toe</div>
+    </header>
+
+    <!-- dialog container -->
+    <dialog >
+        <div open>
+            <label for="firstPlayer">Player One Name</label>
+            <input type="text" name="firstPlayer" id="firstPlayer" placeholder="Player One Marker X">
+        </div>
+        <div>
+            <label for="secondPlayer">Player Two Name</label>
+            <input type="text" name="secondPlayer" id="secondPlayer" placeholder="Player Two Marker O">
+        </div>
+        <div><button type="submit">Start Game</button></div>
+    </dialog>
+
+
+    <div class="button-container">
+        <button class="restart">Restart Game</button>
+    </div>
+
+    <!-- Message container -->
+    <div class="message">
+        <p>Monti wins!!</p>
+    </div>
+
+    <!-- Game container -->
+    <div class="container">
+        <div class="box">O</div>
+        <div class="box">O</div>
+        <div class="box"></div>
+        <div class="box">O</div>
+        <div class="box">X</div>
+        <div class="box">X</div>
+        <div class="box">O</div>
+        <div class="box"></div>
+        <div class="box">X</div>
+    </div>
+</body>
 </html>
