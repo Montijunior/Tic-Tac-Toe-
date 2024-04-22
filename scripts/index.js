@@ -102,31 +102,9 @@ const displayController = (function(){
 
 })();
 
-//Check for a winner
+// //check for winner
 // function checkForWinner(board){
-//     //all possible winning combinations
-//     const winningCombos = [
-//         [0, 1, 2],
-//         [3, 4, 5],
-//         [6, 7, 8],
-//         [0, 3, 6],
-//         [1, 4, 7],
-//         [2, 5, 9],
-//         [0, 4, 8],
-//         [2, 4, 6]
-//     ];
-
-//     //through the winning combination and compare with our board
-//     for (let a = 0; i < winningCombos.length; a++){
-//         const [x, y, z] = winningCombos[i];
-
-//         if(board[x] && board[x] === board[y] && board[x] === board[z]){
-//             return true
-//         }
-//         //else return false
-//         return false;
-
-//     }
+//     let winngingCombos = []
 // }
 
 
