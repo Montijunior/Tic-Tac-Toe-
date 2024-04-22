@@ -76,13 +76,10 @@ const displayController = (function(){
         //else
         GameBoard.update(index, players[currentPlayerIndex].marker);
 
-        //check for win
-        // if (checkForWinner(GameBoard.getBoard(), players[currentPlayerIndex].marker)){
-        //     isGameOver = true;
-        //     messageDisplay.textContent = `${players[currentPlayerIndex].mark} Wins!!`;
+        // //check for tie
+        // if (checkForTie(GameBoard.update())){
+        //     messageDisplay.textContent `It's a tie!!`;
         // }
-
-        //switch
         currentPlayerIndex = currentPlayerIndex === 0 ? 1 : 0;
     }
 
@@ -102,10 +99,6 @@ const displayController = (function(){
 
 })();
 
-// //check for winner
-// function checkForWinner(board){
-//     let winngingCombos = []
-// }
 
 
 //ui
