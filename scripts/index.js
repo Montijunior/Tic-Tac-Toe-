@@ -68,6 +68,7 @@ const displayController = (function(){
 
     //handle click function
     function handleClick(event){
+        const messageDisplay = document.querySelector(".message p");
         let index = parseInt(event.target.id.split("-")[1]);
         console.log(`You click box ${index}`);
 
@@ -75,22 +76,64 @@ const displayController = (function(){
         //else
         GameBoard.update(index, players[currentPlayerIndex].marker);
 
+        //check for win
+        // if (checkForWinner(GameBoard.getBoard(), players[currentPlayerIndex].marker)){
+        //     isGameOver = true;
+        //     messageDisplay.textContent = `${players[currentPlayerIndex].mark} Wins!!`;
+        // }
+
         //switch
         currentPlayerIndex = currentPlayerIndex === 0 ? 1 : 0;
     }
 
+    //restart game
+    function restartGame(){
+        for (let a = 0; a < 9; a++){
+            GameBoard.update(a, "");
+        }
+        GameBoard.render();
+    }
+
     return {
         startGame,
-        handleClick
+        handleClick,
+        restartGame
     };
 
 })();
+
+//Check for a winner
+// function checkForWinner(board){
+//     //all possible winning combinations
+//     const winningCombos = [
+//         [0, 1, 2],
+//         [3, 4, 5],
+//         [6, 7, 8],
+//         [0, 3, 6],
+//         [1, 4, 7],
+//         [2, 5, 9],
+//         [0, 4, 8],
+//         [2, 4, 6]
+//     ];
+
+//     //through the winning combination and compare with our board
+//     for (let a = 0; i < winningCombos.length; a++){
+//         const [x, y, z] = winningCombos[i];
+
+//         if(board[x] && board[x] === board[y] && board[x] === board[z]){
+//             return true
+//         }
+//         //else return false
+//         return false;
+
+//     }
+// }
 
 
 //ui
 const dialog = document.querySelector("dialog");
 const startButton = document.querySelector("dialog button");
-const messageDisplay = document.querySelector(".message p");
+// const messageDisplay = document.querySelector(".message p");
 const restartButton = document.querySelector(".restart");
 
 //when the page is loaded show modal
@@ -104,4 +147,4 @@ function startPlaying(){
 startButton.addEventListener("click", startPlaying);
 
 //restart game
-restartButton.addEventListener("click", restartGame);
+restartButton.addEventListener("click", displayController.restartGame);
