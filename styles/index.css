@@ -109,7 +109,7 @@ label{
     font-size: 28px;
     color: var(--color);
 }
-button[type="submit"]{
+dialog button{
     margin: 5px 0;
     width: 100%;
     padding: 8px 0;
@@ -120,7 +120,27 @@ button[type="submit"]{
     cursor: pointer;
     color: var(--text-color);
 }
-button[type="submit"]:hover{
+dialog h1,h2,p{
+    text-align: center;
+    margin: 6px 0;
+}
+
+dialog h1{
+    font-size: 40px;
+    color: var(--color);
+    transform: translateY(-3px);
+    cursor: pointer;
+}
+
+dialog h2 {
+    font-size: 30px;
+    color: #333;
+}
+dialog p {
+    font-size: 20px;
+    color: var(--text-color);
+}
+dialog button:hover{
     color: white;
-    transform: translateY(-2px);
+    transform: translateY(-4px);
 }
