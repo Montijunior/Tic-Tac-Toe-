@@ -72,22 +72,32 @@ const displayController = (function(){
         let index = parseInt(event.target.id.split("-")[1]);
         console.log(`You click box ${index}`);
 
+        //is gameOver is true stop the game;
+        if (isGameOver) return;
+
         if (GameBoard.getBoard()[index] !== "") return;
         //else
         GameBoard.update(index, players[currentPlayerIndex].marker);
 
-        // //check for tie
-        // if (checkForTie(GameBoard.update())){
-        //     messageDisplay.textContent `It's a tie!!`;
-        // }
-        currentPlayerIndex = currentPlayerIndex === 0 ? 1 : 0;
-    }
+        //Check for tie
+         if (checkTie(GameBoard.getBoard())){
+            messageDisplay.textContent = "It's a tie";
+         } else if (CheckForWin(GameBoard.getBoard(), players[currentPlayerIndex].mark)){
+            isGameOver = true;
+            messageDisplay.textContent = `${players[currentPlayerIndex].marker} wins!!`;
 
+         }
+        currentPlayerIndex = currentPlayerIndex === 0 ? 1 : 0;
+        
+    }
     //restart game
     function restartGame(){
+        const messageDisplay = document.querySelector(".message p");
         for (let a = 0; a < 9; a++){
             GameBoard.update(a, "");
         }
+        isGameOver = false;
+        messageDisplay.textContent = "";
         GameBoard.render();
     }
 
@@ -99,6 +109,33 @@ const displayController = (function(){
 
 })();
 
+//Check for tie function
+function checkTie(array){
+     return array.every((box) => box !== "");
+}
+
+//Check for a winner function
+function CheckForWin(board){
+    //all possible winning conditions
+    const winningCombos = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 9],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+    ];
+
+    //loop through the winning combinations
+    for (let i = 0; i < winningCombos.length; i++){
+      const [a, b, c] = winningCombos[i];
+      if (board[a]  && board[a] === board[b] && board[a] === board[c]){
+        return true;
+      }  
+    }
+}
 
 
 //ui
